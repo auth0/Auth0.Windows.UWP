@@ -5,6 +5,8 @@
 
 	var app = WinJS.Application;
 	var activation = Windows.ApplicationModel.Activation;
+	var AUTH0_CLIENT_ID = "{CLIENT_ID}";
+	var AUTH0_DOMAIN = "{DOMAIN}";
 
 	app.onactivated = function (args) {
 		if (args.detail.kind === activation.ActivationKind.launch) {
@@ -34,7 +36,7 @@
 	};
 
 	function loginButtonClickHandler(eventInfo) {
-	    var auth0 = new Auth0Client("", "");
+	    var auth0 = new Auth0Client(AUTH0_DOMAIN, AUTH0_CLIENT_ID);
 
 	    auth0.Login(function(err, result) {
 	        if (err) {
@@ -47,7 +49,7 @@
 	}
 
 	function loginWithConnectionButtonClickHandler(eventInfo) {
-	    var auth0 = new Auth0Client("", "");
+	    var auth0 = new Auth0Client(AUTH0_DOMAIN, AUTH0_CLIENT_ID);
 
 	    var connectionNameInput = document.getElementById("connectionName");
 
@@ -62,7 +64,7 @@
 	}
 
     function loginCustomButtonClickHandler(eventInfo) {
-        var auth0 = new Auth0Client("", "");
+        var auth0 = new Auth0Client(AUTH0_DOMAIN, AUTH0_CLIENT_ID);
 
         var dbConnectionNameInput = document.getElementById("dbConnectionName");
         var usernameInput = document.getElementById("username");
