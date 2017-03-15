@@ -29,7 +29,7 @@ namespace LoginClientSample.Cs
         {
             this.InitializeComponent();
 
-            auth0Client = new Auth0Client("", "");
+            auth0Client = new Auth0Client("{DOMAIN}", "{CLIENT_ID}");
         }
 
         private async void LoginButton_OnClick(object sender, RoutedEventArgs e)
